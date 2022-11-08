@@ -1,5 +1,6 @@
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
 import './App.css'
 import { Route, Routes } from "react-router-dom"
 import { useEffect } from "react";
@@ -26,7 +27,7 @@ function App() {
           }) )
         } else {
           // if none logged in
-          dispatch( logout )
+          dispatch( logout() )
         }
       }
     )
@@ -38,6 +39,7 @@ function App() {
     <div className="App">
       {!user ? (<LoginPage />) : (
         <Routes>
+          <Route path="profile" element={< ProfilePage/>} />
           <Route path="/" element={<HomePage />} />
         </Routes>)
       }
